@@ -1,0 +1,22 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.swp
+*~
+
+# Dependencies (dev tooling such as PHPCS or npm packages)
+/vendor/
+/node_modules/
+composer.lock
+package-lock.json
+
+# Logs and build output
+*.log
+*.zip
+/dist/
+/build/
