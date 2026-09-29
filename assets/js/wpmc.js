@@ -99,10 +99,6 @@
 		dialog.on('click', function (e) {
 			if (e.target === this || $(e.target).closest('.wpmc-close').length) { this.close(); }
 		});
-		dialog.on('close', function () {
-			$.each(charts, function (_, c) { c.destroy(); });
-			charts = [];
-		});
 		dialog.on('click', '.wpmc-seg button', function () {
 			renderTable($(this).data('view'));
 		});
@@ -127,6 +123,11 @@
 
 	function renderCharts(res) {
 		if (typeof Chart === 'undefined') { dialog.find('canvas').parent().hide(); return; }
+
+		// Destroy the previous charts here rather than on the dialog's 'close' event,
+		// which browsers fire on a later frame (and not at all in hidden tabs).
+		$.each(charts, function (_, c) { c.destroy(); });
+		charts = [];
 
 		var css = getComputedStyle(dialog[0]),
 			color = function (name) { return css.getPropertyValue(name).trim(); },

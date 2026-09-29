@@ -46,8 +46,8 @@ add_action( 'admin_enqueue_scripts', function ( $hook ) {
 	if ( false === strpos( $hook, 'wpmc' ) ) {
 		return;
 	}
-	wp_enqueue_style( 'wpmc-admin', WPMC_URL . 'assets/css/admin.css', array(), WPMC_VERSION );
-	wp_enqueue_script( 'wpmc-admin', WPMC_URL . 'assets/js/admin.js', array(), WPMC_VERSION, true );
+	wp_enqueue_style( 'wpmc-admin', WPMC_URL . 'assets/css/admin.css', array(), wpmc_asset_ver( 'assets/css/admin.css' ) );
+	wp_enqueue_script( 'wpmc-admin', WPMC_URL . 'assets/js/admin.js', array(), wpmc_asset_ver( 'assets/js/admin.js' ), true );
 	wp_localize_script(
 		'wpmc-admin',
 		'wpmcAdmin',

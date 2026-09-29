@@ -76,9 +76,9 @@ add_shortcode( 'wp_mortgage_calculator', 'wpmc_render' );
  */
 function wpmc_register_assets() {
 	$o = wpmc_options();
-	wp_register_style( 'wpmc', WPMC_URL . 'assets/css/wpmc.css', array(), WPMC_VERSION );
+	wp_register_style( 'wpmc', WPMC_URL . 'assets/css/wpmc.css', array(), wpmc_asset_ver( 'assets/css/wpmc.css' ) );
 	wp_register_script( 'wpmc-chartjs', WPMC_URL . 'assets/vendor/chart.umd.min.js', array(), '4.5.1', true );
-	wp_register_script( 'wpmc', WPMC_URL . 'assets/js/wpmc.js', array( 'jquery', 'wpmc-chartjs' ), WPMC_VERSION, true );
+	wp_register_script( 'wpmc', WPMC_URL . 'assets/js/wpmc.js', array( 'jquery', 'wpmc-chartjs' ), wpmc_asset_ver( 'assets/js/wpmc.js' ), true );
 	wp_localize_script(
 		'wpmc',
 		'wpmc',
